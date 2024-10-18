@@ -1,25 +1,30 @@
-class Employee{
-    #name;
-    #baseSalary;
+class Person{
+    constructor(name){
+         this.name = name;
+     }
 
-    setName(val){
-        this.#name = val;
-    }
-    setBaseSalary(val){
-        this.#baseSalary = val;   
-    }
-    getName(){
-        return this.#name;
-    }
-    getSalary(){
-        let bunos = 1000;
-        return this.#baseSalary + bunos;    
-    }
+     sayName(){
+         console.log(this.name);
+       }
 }
 
- var emp = new Employee();
+class Student extends Person{
+   constructor(name, rollNumber){
+      super(name);
+      this.rollNumber = rollNumber;
+  }
 
- emp.setName("Silverio");
- emp.setBaseSalary(100);
- console.log(emp.getName());
- console.log(emp.getSalary());
+      logDetails(){
+      console.log(`Name: ${this.name}, Roll
+      number: ${this.rollNumber}`)
+      }
+
+      sayName(){
+      console.log("From Student");
+      super.sayName();
+      }
+
+}
+      var student = new Student("Ariel", 1);
+      student.logDetails();
+      student.sayName();
